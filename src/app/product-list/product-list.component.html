@@ -1,0 +1,38 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+  <div class="row">
+    <div class="col-md-3" *ngFor="let product of productList">
+      <div class="ibox">
+        <div class="ibox-content product-box">
+          <img class="product-imitation">
+          <img src="{{product.imageUrl}}" height="200px" width="200px">
+          <div class="product-desc">
+                    <span class="product-price">
+                        {{product.price}}
+                    </span>
+            <small class="text-muted">Category</small>
+            <a href="#" class="product-name"> {{product.category}}</a>
+
+            <div class="small m-t-xs">
+              {{product.productName}}
+            </div>
+            <div class="small m-t-xs">
+              Rating: {{calcRating(product.reviews)}}
+            </div>
+            <div class="m-t text-righ">
+
+              <a href="/details/{{product._id}}" class="btn btn-xs btn-outline btn-primary">details <i class="fa fa-long-arrow-right"></i> </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><button class="page-link">Previous</button></li>
+    <li class="page-item" *ngFor="let nb of nbPage"><button class="page-link" (click)="changePage(nb)">{{nb}}</button></li>
+    <li class="page-item"><button class="page-link">Next</button></li>
+  </ul>
+</nav>
